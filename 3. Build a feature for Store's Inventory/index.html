@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a feature for Store's Inventory.</title>
+</head>
+<style>
+    .container{
+        border: 0px solid gray;
+        border-radius: 10px;    
+        background-color: rgb(223, 250, 174);
+        padding: 10px;
+        text-align: left;
+        display: inline-block;
+        margin-top: 40px;
+    }
+</style>
+
+<body>
+    <center>
+        <div class="container">
+            <div>
+                <p id="itemName"></p> <span id="USD_Price"></span>
+            </div>
+
+            <h3 id="nokia" style="text-transform: capitalize;display: inline-block; color: green; font-weight: 600;">
+            </h3>
+            <span id="nokiaPrice" style="color: red;font-weight: 600;"></span> <br>
+
+            <h3 id="redmi" style="text-transform: capitalize;display: inline-block; color: green; font-weight: 600;">
+            </h3>
+            <span id="redmiPrice" style="color: red;font-weight: 600;"></span> <br>
+
+            <h3 id="realme" style="text-transform: capitalize;display: inline-block; color: green; font-weight: 600;">
+            </h3>
+            <span id="realmePrice" style="color: red;font-weight: 600;"></span> <br>
+
+            <h3 id="intex" style="text-transform: capitalize;display: inline-block; color: green; font-weight: 600;">
+            </h3>
+            <span id="intexPrice" style="color: red;font-weight: 600;"></span> <br>
+
+        </div>
+    </center>
+
+
+
+    <script>
+
+        const ItemsName = document.getElementById('itemName')
+        const USD_Price=document.getElementById('USD_Price')
+
+
+        const items = {
+            "nokia": 1.99,
+            "redmi": 0.99,
+            "realme": 2.1,
+            "intex": 1.79
+        };
+        console.log(items)
+      Object.keys(items).map((el) => {
+        //ItemsName.innerText=el
+            console.log(el)
+           
+        })
+
+      
+
+        Object.values(items).map((price) => {
+            console.log(price)
+           // USD_Price.innerText=price
+        })
+
+
+        const convertToRupees = usd => usd * 80;
+
+
+        const itemsInRupees = Object.entries(items).map(([item, price]) => {
+            return { item, priceInRupees: convertToRupees(price) };
+        });
+
+
+        console.log(itemsInRupees);
+        document.getElementById('nokia').innerText = itemsInRupees[0].item
+        document.getElementById('nokiaPrice').innerText = `= Rs.${itemsInRupees[0].priceInRupees}`
+
+        document.getElementById('redmi').innerText = itemsInRupees[1].item
+        document.getElementById('redmiPrice').innerText = `= Rs.${itemsInRupees[1].priceInRupees}`
+
+
+        document.getElementById('realme').innerText = itemsInRupees[2].item
+        document.getElementById('realmePrice').innerText = `= Rs.${itemsInRupees[2].priceInRupees}`
+
+        document.getElementById('intex').innerText = itemsInRupees[3].item
+        document.getElementById('intexPrice').innerText = `= Rs.${itemsInRupees[3].priceInRupees}`
+
+       // console.log(itemsInRupees[nokia])
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL validation</title>
+</head>
+<style>
+    button {
+        height: 30px;
+        width: 70px;
+        background-color: rgb(8, 201, 24);
+        color: black;
+        font-weight: 600;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    input {
+        height: 30px;
+        outline: none;
+        width: 300px;
+        border-radius: 5px;
+        padding-left: 10px;
+    }
+</style>
+
+<body>
+    <div>
+        <center>
+            <h1>Hello welcome</h1>
+            <input type="text" placeholder="Enter valid URL" id="input"><br><br>
+            <button onclick="submitBtn()">Submit</button>
+        </center>
+
+        <center>
+            <h3 id="status1" style="color: green;"> </h3>
+            <h3 id="status2" style="color: red;"> </h3>
+        </center>
+
+    </div>
+
+
+
+    <script>
+        function submitBtn() {
+
+            let input = document.getElementById('input').value
+           
+            let urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i; 
+
+
+            if (urlRegex.test(input)) {
+
+                console.log("Input is a valid URL");
+                let status = document.getElementById("status1").innerHTML
+                document.getElementById("status1").innerHTML = "Input is a valid URL";
+
+               
+            } else {
+                console.log("Input is not a valid URL");
+                document.getElementById("status2").innerHTML = "Input is not a valid URL";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

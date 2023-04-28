@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile URL Validator.</title>
+</head>
+
+<style>
+    input{
+        height: 40px;
+        width:500px;
+        border-radius: 5px;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    button{
+        height: 50px;
+        width: 150px;
+        background-color: green;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 700;
+        color: #fff;
+    }
+.inputSection{
+    background-color: rgb(170, 166, 166);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+</style>
+
+<body>
+    
+
+
+    <div>
+        <center>
+            <h3>For check this link</h3>
+            <p >https://www.linkedin.com/in/john-doe_123</p>
+            <p >https://www.linkedin.com/in/invalid%$#@profile</p>
+            <p >https://www.linkedin.com/in/invalid%$#@profile</p>
+            <p >https://www.linkedin.com/in/jane.doe</p>
+            <p >https://www.linkedin.com/profile</p>
+
+            
+        </center>
+    </div>
+
+   <div class="inputSection">
+     <center>
+        <input type="text" id="url"><br><br>
+        <button onclick="validateURL()">Validate URL</button>
+        <h2 id="idd"></h2>
+    </center>
+   </div>
+
+
+    <script>
+        
+        function validateURL() {
+
+                
+
+            const regex = /^https:\/\/www\.linkedin\.com\/in\/[\w-]{5,30}[A-Za-z0-9]$/;
+
+            function validateLinkedIn(url) {
+                if (regex.test(url)) {
+                   document.getElementById('idd').innerHTML =` ${url} :  is a valid LinkedIn profile URL`
+                    console.log(url + " is a valid LinkedIn profile URL");
+                   
+                  
+                    
+
+                } else {
+                    document.getElementById('idd').innerHTML =` ${url} : is not a valid LinkedIn profile URL`
+                    console.log(url + " is not a valid LinkedIn profile URL");
+                     
+                }
+            }
+
+            const url = document.getElementById('url').value
+            validateLinkedIn(`${url}`); // valid URL
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

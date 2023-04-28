@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering and Capitalizing:</title>
+</head>
+
+
+<style>
+    .container {
+        background-color: rgb(160, 236, 166);
+        padding: 10px 60px;
+        border-radius: 10px;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 30px;
+
+
+    }
+</style>
+
+<body>
+    <center>
+        <div class="container">
+            <p id="item1"></p>
+            <p id="item2"></p>
+            <p id="item3"></p>
+            <p id="item4"></p>
+            <p id="item5"></p>
+            <p id="item6"></p>
+            <p id="item7"></p>
+            <p id="item8"></p>
+
+        </div>
+
+    </center>
+
+
+
+
+
+    <script>
+        const books = [
+            { title: "The Great Gatsby", author: "f. scott fitzgerald", year: 1925 },
+            { title: "To Kill a Mockingbird", author: "harper lee", year: 1960 },
+            { title: "1984", author: "george orwell", year: 1949 },
+            { title: "Pride and Prejudice", author: "jane austen", year: 1813 },
+            { title: "The Catcher in the Rye", author: "j.d. salinger", year: 1951 },
+            { title: "The Hobbit", author: "j.r.r. tolkien", year: 1937 },
+            { title: "The Lord of the Rings", author: "j.r.r. tolkien", year: 1954 },
+            { title: "Brave New World", author: "aldous huxley", year: 2015 },
+        ];
+
+        console.log(books.length - 1)
+
+        const filteredBooks = books.filter((book) => book.year <= 2010);
+        console.log("F::", filteredBooks)
+
+
+        const capitalizedAuthorNames = filteredBooks.map(
+            (book) =>
+            (book = {
+                ...book,
+                author: book.author
+                    .split(" ")
+                    .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+                    .join(" "),
+            })
+        );
+        document.getElementById('item1').innerText = `${capitalizedAuthorNames[0].title} and ${capitalizedAuthorNames[0].author}
+and ${capitalizedAuthorNames[0].year} `
+
+        document.getElementById('item2').innerText = `${capitalizedAuthorNames[1].title} and ${capitalizedAuthorNames[1].author}
+and ${capitalizedAuthorNames[1].year} `
+
+        document.getElementById('item3').innerText = `${capitalizedAuthorNames[2].title} and ${capitalizedAuthorNames[2].author}
+and ${capitalizedAuthorNames[2].year} `
+
+        document.getElementById('item4').innerText = `${capitalizedAuthorNames[3].title} and ${capitalizedAuthorNames[3].author}
+and ${capitalizedAuthorNames[3].year} `
+
+        document.getElementById('item5').innerText = `${capitalizedAuthorNames[4].title} and ${capitalizedAuthorNames[4].author}
+and ${capitalizedAuthorNames[4].year} `
+
+        document.getElementById('item6').innerText = `${capitalizedAuthorNames[5].title} and ${capitalizedAuthorNames[5].author}
+and ${capitalizedAuthorNames[5].year} `
+
+        document.getElementById('item7').innerText = `${capitalizedAuthorNames[6].title} and ${capitalizedAuthorNames[6].author}
+and ${capitalizedAuthorNames[6].year} `
+
+        document.getElementById('item8').innerText = `${capitalizedAuthorNames[7].title} and ${capitalizedAuthorNames[7].author}
+and ${capitalizedAuthorNames[7].year} `
+
+
+        console.log(capitalizedAuthorNames);
+
+    </script>
+</body>
+
+</html>
